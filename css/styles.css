@@ -1,0 +1,150 @@
+body {
+    background-color: black;
+}
+
+#login-box {
+    background: radial-gradient(center, ellipse cover, #0A0101 38%, #12173D 88%);
+    background: -moz-radial-gradient(center, ellipse cover, #0A0101 38%, #12173D 88%);
+    background: -webkit-radial-gradient(center, ellipse cover, #0A0101 38%, #12173D 88%);
+    background: -o-radial-gradient(center, ellipse cover, #0A0101 38%, #12173D 88%);
+    width: 700px;
+    height: 680px;
+    position: relative;
+    top: 50px;
+    box-shadow: 0px 3px 33px #000000;
+    -webkit-box-shadow: 0px 3px 33px #000000;
+    -moz-box-shadow: 0px 3px 33px #000000;
+}
+
+#pic{
+    margin-top:40px;
+    width: 400px;
+    opacity: 0.43;
+}
+#hidden {
+    width: 250px;
+    height: 300px;
+    top: 100px;
+    visibility: hidden;
+}
+
+button{
+    left: 50px;
+    top: 20px;
+    margin-top: 20px;
+}
+
+input {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 50px;
+}
+
+#space-top{
+    margin-top: 5px;
+}
+
+#chess-board{
+    background: radial-gradient(center, ellipse cover, #0A0101 38%, #12173D 88%);
+    background: -moz-radial-gradient(center, ellipse cover, #0A0101 38%, #12173D 88%);
+    background: -webkit-radial-gradient(center, ellipse cover, #0A0101 38%, #12173D 88%);
+    background: -o-radial-gradient(center, ellipse cover, #0A0101 38%, #12173D 88%);
+    width: 1190px;
+    height: 680px;
+    position: relative;
+    top: 50px;
+    box-shadow: 0px 3px 33px #000000;
+    -webkit-box-shadow: 0px 3px 33px #000000;
+    -moz-box-shadow: 0px 3px 33px #000000;
+}
+
+#board{
+    float: left;
+    width : 660px;
+    height: 665px;
+    background-color: #d4d4d4;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.black{
+    width: 80px;
+    height: 80px;
+    background-color: #2d779c;
+    float: left;
+}
+
+.white{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    float: left;
+}
+
+#h-row{
+    margin-top: 5px;
+}
+
+#label-vertical{
+    width: 10px;
+    height: 80px;
+    float: left;
+    color: #1654d4;
+    font-weight: bold;
+}
+
+#label-horizontal{
+    width: 640px;
+    height: 10px;
+    float: left;
+    color: #1654d4;
+    font-weight: bold;
+}
+
+#pane{
+    width: 500px;
+    height: 665px;
+    background-color: #d4d4d4;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+    /*opacity: 0.25;*/
+}
+
+#game-overview{
+    width: 500px;
+    height:200px;
+    background-color: white;
+}
+
+h1{
+    /*float: left;*/
+    color: white;
+    margin-left: 50px;
+    font-family: "Segoe UI";
+}
+
+#score-sheet{
+    margin-top: 20px;
+    width: 300px;
+    height: 380px;
+    background-color: white;
+}
+
+#sheet{
+    margin-top: 10px;
+    width: 80%;
+    height: 350px;
+}
+
+.scope{
+    background-color: #1da079;
+}
+
+#pl-1{
+    float: left;
+}
+#pl-2{
+    float: left;
+}
