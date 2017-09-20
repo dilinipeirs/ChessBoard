@@ -4,11 +4,21 @@
 
 $(document).ready(function () {
     clearScope();
-    $("#pl-1").text(players.player1);
-    // console.log(players.getPlatyer1());
-    // console.log(players.getPlatyer2());
-    $("#pl-2").text(players.player2);
+
+    $("body > div:last").remove();
 });
+
+window.onload = function () {
+    var name1 = localStorage.getItem("player1");
+    var name2 = localStorage.getItem("player2");
+    $("#pl-1").text(name1);
+    $("#pl-2").text(name2);
+    console.log("set headings")
+    localStorage.removeItem("player1");
+    localStorage.removeItem("player2");
+}
+
+
 
 var scopeOfWP = [];
 var scopeOfBP = [];
@@ -22,9 +32,10 @@ var sqNotation = ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1",
     "a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6",
     "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7",
     "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"];
+
 var moveNum = 0;
 var script = "";
-var side = 1;
+// var side = 1;
 
 
 //make pieces able to be dragged
@@ -131,9 +142,11 @@ $(".wP, .bP").on("mousedown", function (event) {
             var frontPiece = $("#" + (currentPos + 7).toString()).children().first().attr("id");
             if (frontPiece.toString().charAt(0) == 'b') scopeOfWP.push(currentPos + 7);
         }
-        if ($("#" + (currentPos + 9).toString()).children().length != 0) {
-            var frontPiece = $("#" + (currentPos + 9).toString()).children().first().attr("id");
-            if (frontPiece.toString().charAt(0) == 'b') scopeOfWP.push(currentPos + 9);
+        if (currentPos % 8 != 0) {
+            if ($("#" + (currentPos + 9).toString()).children().length != 0) {
+                var frontPiece = $("#" + (currentPos + 9).toString()).children().first().attr("id");
+                if (frontPiece.toString().charAt(0) == 'b') scopeOfWP.push(currentPos + 9);
+            }
         }
     } else {
         if ($("#" + (currentPos - 7).toString()).children().length != 0) {
@@ -270,7 +283,7 @@ function checkingRookScope(i, color) {
 }
 function checkingBishopScope(i, color) {
     for (var sqNum = i + 9; sqNum <= 64; sqNum = sqNum + 9) {   //checking the squares diagonally right-up
-        if (sqNum % 8 < i % 8 & sqNum%8!=0) {
+        if (sqNum % 8 < i % 8 & sqNum % 8 != 0) {
             break;
         }
         if (setScopeOfPiece(sqNum, color) == 1) {
@@ -278,7 +291,7 @@ function checkingBishopScope(i, color) {
         }
     }
     for (var sqNum = i - 9; sqNum > 0; sqNum = sqNum - 9) {   //checking the squares diagonally left-down
-        if (sqNum % 8 > i % 8 | sqNum%8==0) {
+        if (sqNum % 8 > i % 8 | sqNum % 8 == 0) {
             break;
         }
         if (setScopeOfPiece(sqNum, color) == 1) {
@@ -286,13 +299,17 @@ function checkingBishopScope(i, color) {
         }
     }
     for (var sqNum = i + 7; sqNum <= 64; sqNum = sqNum + 7) {     //checking the sqaures diagonally left-up
-
+        if (sqNum % 8 == 0) {
+            break;
+        }
         if (setScopeOfPiece(sqNum, color) == 1) {
             break;
         }
     }
     for (var sqNum = i - 7; sqNum > 0; sqNum = sqNum - 7) {       //checking the squares diagonally right-down
-
+        if (sqNum % 8 == 1) {
+            break;
+        }
         if (setScopeOfPiece(sqNum, color) == 1) {
             break;
         }
@@ -336,7 +353,7 @@ function checkingKingScope(i, color) {
                 continue;
             }
         } else {
-            setScopeOfPiece(placesKingCanGo[j],color);
+            setScopeOfPiece(placesKingCanGo[j], color);
         }
     }
 }
